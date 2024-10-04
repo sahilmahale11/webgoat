@@ -38,6 +38,7 @@ pipeline {
         withSonarQubeEnv('sonar') {
             sh 'mvn sonar:sonar'
             //sh 'mvn clean compile sonar:sonar -Dsonar.java.binaries=target/classes'
+            sh './sonarqube_report.sh'
         }
       }
     }
