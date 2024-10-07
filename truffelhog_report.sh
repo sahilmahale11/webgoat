@@ -13,3 +13,5 @@ then
 else
    echo -e "\nFailed to sent report"
 fi
+
+python3 trufflehog_convert.py

@@ -47,6 +47,11 @@ pipeline {
       steps {
         sh 'mvn clean install -DskipTests'
     }
-    }	  	  
+    }	  	 
+    stage ('Consolidated Report') {
+      steps {
+        sh 'python3 consolidatedreports.py'
+    }
+    } 
    }  
 }
