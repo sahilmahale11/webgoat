@@ -1,0 +1,6 @@
+{
+  "log_filename" : "log_devsecops_tool.log",
+  "csv_headers" : ["Date","CWE/CVE", "ToolName", "Severity", "Title", "Description", "Remediation", "SystemInfo", "Component", "Project", "Type", "SecurityCategory", "Line", "Status", "Path", "Key", "Name", "Rule"],
+  "cwe_url" : "https://cwe.mitre.org/data/definitions/",
+  "log_level" : "info"
+}

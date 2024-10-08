@@ -16,7 +16,7 @@ pipeline {
     stage ('Secrets Scanner') {
       steps {
           sh 'trufflehog3 https://github.com/pentesty/DevSecOps_Acc.git -f json -o truffelhog_output.json || true'
-          //sh './truffelhog_report.sh'
+          sh './truffelhog_report.sh'
       }
     }
     
@@ -29,7 +29,7 @@ pipeline {
                     --prettyPrint''', odcInstallation: 'OWASP-DC'
 
                 dependencyCheckPublisher pattern: 'dependency-check-report.xml'
-                        //sh './dependency_check_report.sh'
+                        sh './dependency_check_report.sh'
             }
         }
     
@@ -49,14 +49,13 @@ pipeline {
     }
     }	  	 
     
-    stage ('Incidents report') {
+stage ('Incidents report') {
         steps {
-	        sh 'echo "The Consolidated Final Report"'
-	        sh 'cd securitytoolsparser-main/ && python3 run_parser.py -t "Trufflehog3 Scan" -p "../truffelhog_output.json" -o "consolidated_test_output.csv"'
-	        sh 'cd securitytoolsparser-main/ && python3 run_parser.py -t "DependencyCheck Scan" -p "../dependency-check-report.xml" -o "consolidated_test_output.csv"'
+	        sh 'echo "Consolidated Final Report"'
+	        sh 'cd /root/repo4/webgoat/securitytoolsparser-main/ && python3 run_parser.py -t "Trufflehog3 Scan" -p "/var/lib/jenkins/reports/truffelhog_output.json" -o "consolidated_test_output.csv"'
+	        sh 'cd /root/repo4/webgoat/securitytoolsparser-main/ && python3 run_parser.py -t "DependencyCheck Scan" -p "/var/lib/jenkins/reports/dependency-check-report.xml" -o "consolidated_test_output.csv"'
 	        sh ''
         }
     }
-   
    }  
 }
