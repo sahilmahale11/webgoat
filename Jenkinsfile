@@ -39,6 +39,7 @@ pipeline {
             sh 'mvn sonar:sonar'
             //sh 'mvn clean compile sonar:sonar -Dsonar.java.binaries=target/classes'
             sh './sonarqube_report.sh'
+            sh 'cp consolidated_sonarqube_scan_output.csv "$PWD"/securitytoolsparser-main/output_files/stale_report/'
         }
       }
     }
@@ -52,8 +53,8 @@ pipeline {
     stage ('Incidents report') {
         steps {
 	        sh 'echo "The Consolidated Final Report"'
-	        sh 'cd securitytoolsparser-main/ && python3 run_parser.py -t "Trufflehog3 Scan" -p "../truffelhog_output.json" -o "consolidated_test_output.csv"'
-	        sh 'cd securitytoolsparser-main/ && python3 run_parser.py -t "DependencyCheck Scan" -p "../dependency-check-report.xml" -o "consolidated_test_output.csv"'
+	        sh 'cd securitytoolsparser-main/ && python3 run_parser.py -t "Trufflehog3 Scan" -p "../truffelhog_output.json" -o "consolidated_trufflehog_scan_output.csv"'
+	        sh 'cd securitytoolsparser-main/ && python3 run_parser.py -t "DependencyCheck Scan" -p "../dependency-check-report.xml" -o "consolidated_dependency_check_output.csv"'
 	        sh ''
         }
     }

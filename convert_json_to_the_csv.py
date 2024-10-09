@@ -6,7 +6,7 @@ with open('sonarqube_report.json') as json_file:
     data = json.load(json_file)
 
 # Create a CSV file
-with open('sonarqube_report.csv', mode='w', newline='') as csv_file:
+with open('consolidated_sonarqube_scan_output.csv', mode='w', newline='') as csv_file:
     fieldnames = ['key', 'severity', 'message', 'component', 'line']
     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
 
@@ -20,4 +20,4 @@ with open('sonarqube_report.csv', mode='w', newline='') as csv_file:
             'line': issue.get('line', 'N/A')
         })
 
-print("Report saved as sonarqube_report.csv")
+print("Report saved as consolidated_sonarqube_scan_output.csv")
