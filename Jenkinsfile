@@ -55,7 +55,8 @@ pipeline {
 	        sh 'echo "The Consolidated Final Report"'
 	        sh 'cd securitytoolsparser-main/ && python3 run_parser.py -t "Trufflehog3 Scan" -p "../truffelhog_output.json" -o "consolidated_trufflehog_scan_output.csv"'
 	        sh 'cd securitytoolsparser-main/ && python3 run_parser.py -t "DependencyCheck Scan" -p "../dependency-check-report.xml" -o "consolidated_dependency_check_output.csv"'
-	        sh ''
+	        sh 'python3 consolidate_script.py'
+                sh 'cp Final_consolidated_scan_report.csv "$PWD"/securitytoolsparser-main/output_files/latest_report/'
         }
     }
    
