@@ -39,7 +39,7 @@ pipeline {
             sh 'mvn sonar:sonar'
             //sh 'mvn clean compile sonar:sonar -Dsonar.java.binaries=target/classes'
             sh './sonarqube_report.sh'
-            sh 'cp consolidated_sonarqube_scan_output.csv "$PWD"/securitytoolsparser-main/output_files/stale_report/'
+            sh 'cp consolidated_sonarqube_scan_output.csv "$PWD"/securitytoolsparser-main/output_files/latest_report/'
         }
       }
     }
