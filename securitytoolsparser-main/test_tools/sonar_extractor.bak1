@@ -20,8 +20,7 @@ SECURITY_HOTSPOT = {
     "profile": "SecurityHotSpot",
     "fetch": {
         "type": "API",
-       # "url": "{base_url}/api/hotspots/search?inNewCodePeriod=false&onlyMine=false&p={page}&project={project}&ps={page_size}&status=TO_REVIEW",
-        "url": "{base_url}/api/hotspots/search?inNewCodePeriod=false&onlyMine=false&p={page}&projectKey={project}&ps={page_size}&status=TO_REVIEW",
+        "url": "{base_url}/api/hotspots/search?inNewCodePeriod=false&onlyMine=false&p={page}&project={project}&ps={page_size}&status=TO_REVIEW",
         "path": ["hotspots"],
         "pagination_key": "hotspots",
         "inputs": ["project"],
@@ -54,8 +53,7 @@ VULNERABILITY_API = {
     "profile": "Vulnerabilities",
     "fetch": {
         "type": "API",
-        #"url": "{base_url}/api/issues/search?components={project}&s=FILE_LINE&impactSoftwareQualities=SECURITY&issueStatuses=CONFIRMED%2COPEN&ps={page_size}&p={page}&facets=cleanCodeAttributeCategories%2CimpactSoftwareQualities%2CcodeVariants&additionalFields=_all&timeZone=Asia%2FCalcutta",
-        "url": "{base_url}/api/issues/search?components={project}&s=FILE_LINE&impactSoftwareQualities=SECURITY&issueStatuses=CONFIRMED%2COPEN&ps={page_size}&p={page}&additionalFields=_all&timeZone=Asia%2FCalcutta",
+        "url": "{base_url}/api/issues/search?components={project}&s=FILE_LINE&impactSoftwareQualities=SECURITY&issueStatuses=CONFIRMED%2COPEN&ps={page_size}&p={page}&facets=cleanCodeAttributeCategories%2CimpactSoftwareQualities%2CcodeVariants&additionalFields=_all&timeZone=Asia%2FCalcutta",
         "path": ["issues"],
         "pagination_key": "issues",
         "inputs": ["project"],
